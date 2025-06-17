@@ -1,7 +1,10 @@
 <div class="poll-result">
   <div class="poll-container">
     <% for(var i = 0; i < poll.length; i++) { %>
+      <div>
+      <div class="title">Տարբերակ <%- i + 1 %></div>
       <div class="poll" style="background-color: <%- poll[i].color %>;"><%- poll[i].count %></div>
+    </div>
     <% } %>
   </div>
 </div>
