@@ -47,9 +47,12 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/qr", (req, res) => {
   const d = new Date();
   const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
-  QRCode.toDataURL(`https://www.vahepoghosyan.com/?date=${date}`, {
-    scale: 100,
-  }).then((url) => {
+  QRCode.toDataURL(
+    `https://yntanekan-patmutyunner.onrender.com/?date=${date}`,
+    {
+      scale: 100,
+    }
+  ).then((url) => {
     res.render("qr.ejs", {
       qr: url,
     });
