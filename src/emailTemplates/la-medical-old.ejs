@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Appointment</title>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Event",
+                "name": "Contact Us Follow-Up Call",
+                "startDate": "2025-05-06T14:00:00-07:00",
+                "endDate": "2025-05-06T14:30:00-07:00",
+                "location": {
+                    "@type": "Place",
+                    "name": "Google Meet",
+                    "address": "Online"
+                },
+                "description": "This is a follow-up call from your Contact Us submission.",
+                "organizer": {
+                    "@type": "Organization",
+                    "name": "Your Company Name",
+                    "url": "https://yourcompany.com"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id=":1sz" class="a3s aiL">
+            You just got a form submission! <br /><br />
+            <strong>Form</strong>
+            <br />
+            Book Appointment
+            <br /><br />
+            <strong>Site</strong>
+            <br />
+            LA Medical
+            <br /><br />
+            <strong>Submitted content</strong>
+            <br />Full Name: <%- full_name %> <br />Email:
+            <a href="mailto:<%- email %>" target="_blank"><%- email %></a> <br />Phone Number: <%-
+            phone %> <br />Preferred date: <%- date %> <br />Preferred time: <%- time %>
+            <br />Service Name: <%- service %>
+            <br />Procedure Name: <%- procedure %> 
+            <br />Message: <%- message %>
+            <br />
+        </div>
+    </body>
+</html>
