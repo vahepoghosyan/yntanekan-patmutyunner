@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((err) => {
           title.textContent = "Մի բան լավ չգնաց";
+          versionForm.classList.add("hide");
           title.classList.add("show");
         });
     });

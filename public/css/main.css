@@ -7321,6 +7321,7 @@ body {
 }
 .poll-page .title,
 .voted .title {
+  text-shadow: 0 0 10px black;
   text-align: center;
   font-weight: 700;
   font-size: 32px;
@@ -7420,6 +7421,13 @@ body {
   .page-404 {
     background-size: 33.333%;
   }
+}
+.voted .title,
+.page-404 .title {
+  text-shadow: 0 0 10px black;
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
 }
 
 /*# sourceMappingURL=main.css.map */

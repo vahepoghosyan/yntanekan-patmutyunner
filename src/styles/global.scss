@@ -124,6 +124,7 @@ body {
   }
 
   .title {
+    text-shadow: 0 0 10px black;
     text-align: center;
     font-weight: 700;
     font-size: 32px;
@@ -222,5 +223,12 @@ body {
 
   @media (min-width: 920px) {
     background-size: 33.333%;
+  }
+
+  .title {
+    text-shadow: 0 0 10px black;
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
   }
 }

@@ -62,7 +62,7 @@ app.get("/qr", (req, res) => {
 app.get("/", (req, res) => {
   const { date } = req.query;
 
-  if (!date) return res.redirect("/404.ejs");
+  if (!date) return res.redirect("/404");
 
   if (req.cookies.date === date && req.cookies.isVoted === "true") {
     return res.render("voted.ejs");
@@ -80,7 +80,7 @@ app.post("/version", (req, res) => {
 
   const { version } = req.body;
   if (!options.includes(version)) {
-    return res.redirect("/404.ejs");
+    return res.redirect("/404");
   }
 
   db.prepare(`INSERT INTO votes (version) VALUES (?)`).run(version);
