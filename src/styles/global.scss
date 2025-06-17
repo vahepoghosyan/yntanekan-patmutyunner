@@ -45,7 +45,7 @@ body {
   text-decoration: none;
   border: none;
   transition: background-color 0.2s ease-in-out;
-  box-shadow: 1px 1px 10px #1a1a34;
+  box-shadow: 1px 1px 20px #1a1a34;
 
   &-primary {
     background-color: #535152;
@@ -84,12 +84,14 @@ body {
   align-items: center;
   justify-content: center;
 
-  img {
-    border-radius: 10px;
+  a {
     max-width: 400px;
     min-width: 200px;
     width: 20%;
-    margin-bottom: 20px;
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
   }
 }
 
@@ -212,6 +214,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 1px 1px 20px #1a1a34;
   }
 }
 
