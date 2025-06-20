@@ -48,7 +48,7 @@ app.get("/qr", (req, res) => {
   const d = new Date();
   const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
   QRCode.toDataURL(
-    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.ap/?date=${date}`,
+    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?date=${date}`,
     {
       scale: 100,
     }
