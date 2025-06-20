@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(e.target);
 
       axios
-        .post(`https://yntanekan-patmutyunner.onrender.com/version`, {
+        .post(`https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/version`, {
           version: formData.get("version"),
         })
         .then((res) => {
