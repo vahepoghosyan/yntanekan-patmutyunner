@@ -57,7 +57,7 @@ app.get("/qr", (req, res) => {
   db.prepare(`DELETE FROM votes`).run();
   QRCode.toDataURL(
     // `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${generateInsecureRandomString(10)}`,
-    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/}`,
+    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app`,
     {
       scale: 100,
     }
@@ -74,7 +74,7 @@ app.get("/", (req, res) => {
   // if (!hash) return res.redirect("/404");
 
   // if (req.cookies.hash === hash && req.cookies.isVoted === "true") {
-    // return res.render("voted.ejs");
+  // return res.render("voted.ejs");
   // }
 
   // res.cookie("hash", hash);
