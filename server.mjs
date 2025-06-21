@@ -40,12 +40,23 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: false }));
 
+function generateInsecureRandomString(length) {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 app.get("/qr", (req, res) => {
   const hash = Math.round(Math.random() * 1000000);
   // const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
   db.prepare(`DELETE FROM votes`).run();
   QRCode.toDataURL(
-    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${hash}`,
+    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${generateInsecureRandomString(10)}`,
     {
       scale: 100,
     }
