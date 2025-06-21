@@ -56,7 +56,8 @@ app.get("/qr", (req, res) => {
   // const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
   db.prepare(`DELETE FROM votes`).run();
   QRCode.toDataURL(
-    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${generateInsecureRandomString(10)}`,
+    // `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${generateInsecureRandomString(10)}`,
+    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/}`,
     {
       scale: 100,
     }
@@ -68,16 +69,16 @@ app.get("/qr", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const { hash } = req.query;
+  // const { hash } = req.query;
 
-  if (!hash) return res.redirect("/404");
+  // if (!hash) return res.redirect("/404");
 
-  if (req.cookies.hash === hash && req.cookies.isVoted === "true") {
-    return res.render("voted.ejs");
-  }
+  // if (req.cookies.hash === hash && req.cookies.isVoted === "true") {
+    // return res.render("voted.ejs");
+  // }
 
-  res.cookie("hash", hash);
-  res.cookie("isVoted", false);
+  // res.cookie("hash", hash);
+  // res.cookie("isVoted", false);
   res.render("index.ejs");
 });
 
