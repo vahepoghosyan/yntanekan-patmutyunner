@@ -20,7 +20,6 @@ body {
   font-family: Inter, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
-  //   background-image: url("../img/4.gif");
   background-size: 50%;
   color: #fff;
 
@@ -72,12 +71,8 @@ body {
 }
 
 .qr-page {
-  background-image: url("../img/4.gif");
-  background-size: 50%;
-
-  @media (min-width: 920px) {
-    background-size: 33.333%;
-  }
+//   background-image: url("../img/4.gif");
+  
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -96,7 +91,7 @@ body {
 }
 
 .poll-page {
-  background-image: url("../img/2.gif");
+//   background-image: url("../img/2.gif");
   background-size: 50%;
   color: #fff;
 
@@ -188,7 +183,7 @@ body {
   justify-content: center;
   font-size: 32px;
   font-weight: 700;
-  background-image: url("../img/1.gif");
+//   background-image: url("../img/1.gif");
   background-size: 50%;
   color: #fff;
 
@@ -226,7 +221,7 @@ body {
 
 .voted,
 .page-404 {
-  background-image: url("../img/3.gif");
+//   background-image: url("../img/3.gif");
   background-size: 50%;
   color: #fff;
 

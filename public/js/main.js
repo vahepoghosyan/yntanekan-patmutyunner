@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const body = document.getElementById("body");
   const versions = document.querySelectorAll(".version");
   const versionForm = document.querySelector("#version-form");
   const confirm = document.querySelector(".confirm");
   const title = document.querySelector(".title");
+
+  const randomImage = Math.round(Math.random() * (7 - 1) + 1);
+  body.style.backgroundImage = `url("../img/${randomImage}.gif")`;
 
   versions.forEach((version) => {
     version.addEventListener("click", () => {
