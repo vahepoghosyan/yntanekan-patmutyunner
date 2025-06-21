@@ -5,14 +5,10 @@ import cookieParser from "cookie-parser";
 import Database from "better-sqlite3";
 import QRCode from "qrcode";
 import { fileURLToPath } from "url";
-import fs from "fs";
-import path, { dirname } from "path";
+import { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const origin = "https://marriott-admin.onrender.com";
-import e from "express";
 
 const db = new Database("poll.db");
 const app = express();
@@ -45,10 +41,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/qr", (req, res) => {
-  const d = new Date();
-  const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
+  const hash = Math.round(Math.random() * 1000000);
+  // const date = `${d.getDate()}_${d.getMonth() + 1}_${d.getFullYear()}`;
+  db.prepare(`DELETE FROM votes`).run();
   QRCode.toDataURL(
-    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?date=${date}`,
+    `https://yntanekan-patmutyunner-901154874733.europe-west1.run.app/?hash=${hash}`,
     {
       scale: 100,
     }
@@ -60,17 +57,22 @@ app.get("/qr", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const { date } = req.query;
+  const { hash } = req.query;
 
-  if (!date) return res.redirect("/404");
+  if (!hash) return res.redirect("/404");
 
-  if (req.cookies.date === date && req.cookies.isVoted === "true") {
+  if (req.cookies.hash === hash && req.cookies.isVoted === "true") {
     return res.render("voted.ejs");
   }
 
-  res.cookie("date", date);
+  res.cookie("hash", hash);
   res.cookie("isVoted", false);
   res.render("index.ejs");
+});
+
+app.get("/get-all", (req, res) => {
+  const all = db.prepare(`SELECT * from votes`).all();
+  res.status(200).json({ all });
 });
 
 const options = ["1", "2", "3"];
@@ -91,11 +93,7 @@ app.post("/version", (req, res) => {
 app.get("/poll", (req, res) => {
   const counts = [];
 
-  const todaysRes = db
-    .prepare(
-      `SELECT * FROM votes WHERE DATE(created_at) = DATE('now', 'localtime')`
-    )
-    .all();
+  const todaysRes = db.prepare(`SELECT * FROM votes`).all();
 
   const sum = todaysRes.length;
 
