@@ -7238,8 +7238,8 @@ body > div {
 .button {
   max-width: 200px;
   max-height: 200px;
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 120px;
+  min-height: 120px;
   border-radius: 100px;
   display: flex;
   align-items: center;
@@ -7299,7 +7299,7 @@ body > div {
 
 .poll-page,
 .voted {
-  padding: 70px;
+  padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
