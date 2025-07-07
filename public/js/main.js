@@ -5,8 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirm = document.querySelector(".confirm");
   const title = document.querySelector(".title");
 
-  const randomImage = Math.round(Math.random() * (7 - 1) + 1);
-  body.style.backgroundImage = `url("../img/${randomImage}.gif")`;
+
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const weights = [1, 1, 1, 1, 1, 1, 4, 4, 4, 4]; // Higher weights for 7-10
+
+  function weightedRandom(numbers, weights) {
+    const totalWeight = weights.reduce((a, b) => a + b, 0);
+    const rand = Math.random() * totalWeight;
+    let sum = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      sum += weights[i];
+      if (rand < sum) return numbers[i];
+    }
+  }
+
+
+
+  body.style.backgroundImage = `url("../img/${weightedRandom(numbers, weights)}.gif")`;
 
   versions.forEach((version) => {
     version.addEventListener("click", () => {
