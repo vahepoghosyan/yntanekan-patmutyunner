@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const title = document.querySelector(".title");
 
   const numbers = [11, 12, 13, 14, 15, 16];
-  const weights = [4, 4, 4, 4, 4];6
+  const weights = [4, 4, 4, 4, 4];
 
   function weightedRandom(numbers, weights) {
     const totalWeight = weights.reduce((a, b) => a + b, 0);
