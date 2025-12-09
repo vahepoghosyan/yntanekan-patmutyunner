@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirm = document.querySelector(".confirm");
   const title = document.querySelector(".title");
 
-
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const weights = [1, 1, 1, 1, 1, 1, 4, 4, 4, 4]; // Higher weights for 7-10
+  const numbers = [11, 12, 13, 14, 15, 16];
+  const weights = [4, 4, 4, 4, 4];6
 
   function weightedRandom(numbers, weights) {
     const totalWeight = weights.reduce((a, b) => a + b, 0);
@@ -19,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (rand < sum) return numbers[i];
     }
   }
-
-
 
   body.style.backgroundImage = `url("../img/${weightedRandom(numbers, weights)}.gif")`;
 
